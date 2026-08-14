@@ -3,102 +3,110 @@
 
 ## Project Title
 
-**Write the full title of your project here**
+**Design and Development of a NIR-Based Optical Sensing Prototype for Glucose Trend Correlation**
 
+https://youtu.be/MuU9FWgoZak
 ---
 
 ## Team Details
 
-| Sr. No. | Name of Student | Roll No. | Branch | Email ID |
-|---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
+| Sr. No. | Name of Student  | Roll No. | Branch                  | Email ID                                                                  |
+| ------- | ---------------- | -------- | ----------------------- | ------------------------------------------------------------------------- |
+| 1       | Swarali Desai    | 06       | Automation and Robotics | [2023.swarali.desai@ves.ac.in](mailto:2023.swarali.desai@ves.ac.in)       |
+| 2       | Sushant Lokhande | 47       | Automation and Robotics | [2023.sushant.lokhande@ves.ac.in](mailto:2023.sushant.lokhande@ves.ac.in) |
+| 3       | Vedika Date      | 35       | Automation and Robotics | [2023.vedika.date@ves.ac.in](mailto:2023.vedika.date@ves.ac.in)           |
+| 4       | Yash Jadhav      | 39       | Automation and Robotics | [2023.yash.jadhav@ves.ac.in](mailto:2023.yash.jadhav@ves.ac.in)           |
 
 ---
 
 ## Guide Details
 
-**Project Guide:**  
-**Department:** Automation and Robotics  
-**Institute:** VESIT, Mumbai  
+**Project Guide:** Kader Shaikh
+**Department:** Automation and Robotics
+**Institute:** VESIT, Mumbai
 
 ---
 
 ## Problem Statement
 
-Write a clear problem statement here.
-
-Example:
-
-> The aim of this project is to design and develop a system that solves the problem of __________ by using __________ technology.
+> There is a need for a non-invasive, painless, and convenient approach for monitoring blood glucose trends without repeated skin penetration. Existing glucometers commonly use invasive finger-prick methods, which can be painful and inconvenient for frequent monitoring and require recurring consumables such as strips and lancets. This project aims to investigate the feasibility of using NIR-based optical sensing to correlate tissue optical responses with blood glucose trends.
 
 ---
 
 ## Abstract
 
-Write a short summary of the project in 150–250 words.
-
-The abstract should include:
-
-- Background of the problem
-- Proposed solution
-- Technology used
-- Expected outcome
-- Application area
+Diabetes requires regular blood glucose monitoring, while conventional finger-prick glucometers involve invasive measurements that can be inconvenient and uncomfortable for frequent use. This project proposes the design and development of a NIR-based optical sensing prototype for investigating blood glucose trend correlation without skin penetration. The proposed system uses two NIR wavelengths, 850 nm and 940 nm, which are switched to generate optical signals through a finger. A BPW34 photodiode captures the resulting optical response, which is amplified using a transimpedance amplifier based on MCP6002 or OPA380. The amplified signal is digitized using a 16-bit ADS1115 ADC and processed using an ESP32. Signal-processing techniques such as noise filtering, baseline drift correction, ambient-light cancellation, absorbance-ratio calculation, and multi-wavelength correlation will be investigated. The optical measurements will be compared with reference glucometer readings to study their relationship with blood glucose trends. The project also considers the possible application of pigmentation and temperature compensation algorithms. The expected outcome is a portable, low-cost optical sensing prototype for research into non-invasive glucose monitoring.
 
 ---
 
 ## Objectives
 
-1. To study the existing problem and available solutions.
-2. To design a suitable hardware/software/system architecture.
-3. To implement the proposed solution.
-4. To test and validate the system.
-5. To document and publish the project work.
+1. To study the existing problem and principles of NIR spectroscopy for glucose sensing.
+2. To design a suitable optical sensing and signal acquisition architecture.
+3. To generate NIR signals using 850 nm and 940 nm LEDs through wavelength switching.
+4. To detect the optical response using a BPW34 photodiode.
+5. To amplify the photodiode signal using a transimpedance amplifier.
+6. To acquire the signal using a 16-bit ADS1115 ADC and ESP32.
+7. To implement signal processing including noise filtering, baseline correction, and ambient-light cancellation.
+8. To investigate absorbance-ratio and multi-wavelength features for glucose trend correlation.
+9. To validate device readings against reference glucometer measurements.
+10. To investigate the possible use of pigmentation and temperature compensation algorithms.
 
 ---
 
 ## Scope of the Project
 
-Mention what the project will cover.
-
-Example:
-
-- Design and development of prototype
-- Hardware implementation
-- Software/mobile/web interface
-- Data collection and testing
-- Performance analysis
+* Design and development of a NIR-based optical sensing prototype
+* Generation of optical signals using 850 nm and 940 nm NIR LEDs
+* Finger-based optical measurement
+* BPW34 photodiode-based detection
+* Transimpedance amplification using MCP6002 / OPA380
+* 16-bit ADC-based signal acquisition using ADS1115
+* ESP32-based data acquisition and processing
+* Noise filtering and baseline drift correction
+* Ambient-light cancellation
+* Absorbance-ratio calculation
+* Multi-wavelength correlation
+* Data collection and validation against a standard glucometer
+* Investigation of pigmentation and temperature compensation
+* Performance analysis of the prototype
 
 ---
 
 ## Existing System
 
-Describe the currently available system or method.
+Currently available glucometers commonly use invasive finger-prick methods for blood glucose measurement. The user must obtain a blood sample and use a disposable test strip to determine the glucose level.
 
-Mention its limitations:
+Limitations include:
 
-- High cost
-- Low accuracy
-- Manual process
-- Lack of automation
-- Poor scalability
-- Limited accessibility
+* Invasive finger-prick measurement
+* Pain and discomfort during frequent testing
+* Recurring cost of strips and lancets
+* Inconvenience for frequent monitoring
+* Risk of infection
+* Reduced patient compliance over time
+
+Existing wearable devices can provide vital-parameter monitoring, but reliable non-invasive glucose sensing remains a challenge.
 
 ---
 
 ## Proposed System
 
-Describe your proposed solution.
+The proposed system is a spectroscopy-based optical sensing prototype that uses the absorption and reflection properties of human tissue to investigate blood glucose trends without skin penetration.
 
-Include:
+The system will use:
 
-- Main idea
-- How it works
-- Major components
-- Expected benefits
+* **NIR LEDs:** 850 nm and 940 nm
+* **Photodiode:** BPW34
+* **Transimpedance Amplifier:** MCP6002 / OPA380
+* **ADC:** ADS1115, 16-bit
+* **Microcontroller:** ESP32
+* **Optional:** OLED display, temperature sensor, and pressure sensor
+* **Finger-clip enclosure**
+
+The two NIR wavelengths will be switched and transmitted through the finger. The BPW34 photodiode will detect the optical response, which will be amplified by the TIA and converted into digital data using the 16-bit ADC. The ESP32 will acquire and process the signal.
+
+The processing will include noise filtering, baseline drift correction, ambient-light cancellation, absorbance-ratio calculation, and multi-wavelength correlation. The resulting measurements will be compared with standard glucometer readings to investigate glucose trends.
 
 ---
 
@@ -108,7 +116,31 @@ Add block diagram or system architecture image here.
 
 ```markdown
 ![System Architecture](images/system_architecture.png)
-````
+```
+
+The basic signal flow is:
+
+```text
+NIR LEDs
+(850 nm & 940 nm)
+        ↓
+Finger
+        ↓
+Photodiode
+(BPW34)
+        ↓
+TIA
+(MCP6002 / OPA380)
+        ↓
+ADC
+(16-bit ADS1115)
+        ↓
+ESP32
+        ↓
+Serial Monitor
+```
+
+The system architecture follows the proposed flow of generating two NIR signals, transmitting them through the finger, detecting the optical response, amplifying it, converting it using a 16-bit ADC, and processing the acquired data through the ESP32.
 
 Briefly explain the architecture.
 
