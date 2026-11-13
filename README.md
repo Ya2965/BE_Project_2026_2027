@@ -1,490 +1,338 @@
-
 # BE Capstone Project
 
 ## Project Title
 
-**Design and Development of a NIR-Based Optical Sensing Prototype for Glucose Trend Correlation**
+**Development of a NIR Spectroscopy-Based Optical Sensing Prototype for Glucose Trend Correlation**
 
-https://youtu.be/MuU9FWgoZak
+[Project Demonstration](https://youtu.be/MuU9FWgoZak)
+
 ---
 
 ## Team Details
 
-| Sr. No. | Name of Student  | Roll No. | Branch                  | Email ID                                                                  |
-| ------- | ---------------- | -------- | ----------------------- | ------------------------------------------------------------------------- |
-| 1       | Swarali Desai    | 06       | Automation and Robotics | [2023.swarali.desai@ves.ac.in](mailto:2023.swarali.desai@ves.ac.in)       |
-| 2       | Sushant Lokhande | 47       | Automation and Robotics | [2023.sushant.lokhande@ves.ac.in](mailto:2023.sushant.lokhande@ves.ac.in) |
-| 3       | Vedika Date      | 35       | Automation and Robotics | [2023.vedika.date@ves.ac.in](mailto:2023.vedika.date@ves.ac.in)           |
-| 4       | Yash Jadhav      | 39       | Automation and Robotics | [2023.yash.jadhav@ves.ac.in](mailto:2023.yash.jadhav@ves.ac.in)           |
+| Sr. No. | Name of Student | Roll No. | Branch | Email ID |
+| --- | --- | ---: | --- | --- |
+| 1 | Swarali Desai | 06 | Automation and Robotics | 2023.swarali.desai@ves.ac.in |
+| 2 | Sushant Lokhande | 47 | Automation and Robotics | 2023.sushant.lokhande@ves.ac.in |
+| 3 | Vedika Date | 35 | Automation and Robotics | 2023.vedika.date@ves.ac.in |
+| 4 | Yash Jadhav | 39 | Automation and Robotics | 2023.yash.jadhav@ves.ac.in |
 
 ---
 
 ## Guide Details
 
-**Project Guide:** Kader Shaikh
-**Department:** Automation and Robotics
-**Institute:** VESIT, Mumbai
+- **Project Guide:** Kader Shaikh
+- **Department:** Automation and Robotics
+- **Institute:** VESIT, Mumbai
 
 ---
 
 ## Problem Statement
 
-> There is a need for a non-invasive, painless, and convenient approach for monitoring blood glucose trends without repeated skin penetration. Existing glucometers commonly use invasive finger-prick methods, which can be painful and inconvenient for frequent monitoring and require recurring consumables such as strips and lancets. This project aims to investigate the feasibility of using NIR-based optical sensing to correlate tissue optical responses with blood glucose trends.
+Conventional blood glucose monitoring commonly relies on finger-prick measurements. Repeated skin puncturing can cause discomfort and inconvenience, particularly for frequent monitoring. This project investigates the feasibility of using near-infrared (NIR) optical measurements to study the relationship between tissue optical responses and reference blood glucose readings, with the aim of exploring glucose trend correlation without repeated blood sampling.
 
 ---
 
 ## Abstract
 
-Diabetes requires regular blood glucose monitoring, while conventional finger-prick glucometers involve invasive measurements that can be inconvenient and uncomfortable for frequent use. This project proposes the design and development of a NIR-based optical sensing prototype for investigating blood glucose trend correlation without skin penetration. The proposed system uses two NIR wavelengths, 850 nm and 940 nm, which are switched to generate optical signals through a finger. A BPW34 photodiode captures the resulting optical response, which is amplified using a transimpedance amplifier based on MCP6002 or OPA380. The amplified signal is digitized using a 16-bit ADS1115 ADC and processed using an ESP32. Signal-processing techniques such as noise filtering, baseline drift correction, ambient-light cancellation, absorbance-ratio calculation, and multi-wavelength correlation will be investigated. The optical measurements will be compared with reference glucometer readings to study their relationship with blood glucose trends. The project also considers the possible application of pigmentation and temperature compensation algorithms. The expected outcome is a portable, low-cost optical sensing prototype for research into non-invasive glucose monitoring.
+This project focuses on the development and experimental evaluation of two NIR-based optical sensing prototype configurations for investigating non-invasive glucose trend correlation. The first prototype uses two near-infrared wavelengths, 850 nm and 940 nm, to obtain optical measurements through a finger. A BPW34 photodiode detects the transmitted optical response, which is conditioned and acquired for analysis. The second prototype extends the sensing configuration by incorporating skin-temperature measurements, photoplethysmography (PPG)-derived features, and contextual parameters.
+
+The acquired measurements are associated with reference glucose readings obtained using a conventional glucometer. The resulting dataset is used to investigate the relationship between NIR measurements and glucose readings, and to compare models based on NIR inputs alone with multivariate models that include additional physiological and contextual information. The project is an experimental investigation; it does not claim clinical validation or replacement of conventional glucose measurement devices.
 
 ---
 
 ## Objectives
 
-1. To study the existing problem and principles of NIR spectroscopy for glucose sensing.
-2. To design a suitable optical sensing and signal acquisition architecture.
-3. To generate NIR signals using 850 nm and 940 nm LEDs through wavelength switching.
-4. To detect the optical response using a BPW34 photodiode.
-5. To amplify the photodiode signal using a transimpedance amplifier.
-6. To acquire the signal using a 16-bit ADS1115 ADC and ESP32.
-7. To implement signal processing including noise filtering, baseline correction, and ambient-light cancellation.
-8. To investigate absorbance-ratio and multi-wavelength features for glucose trend correlation.
-9. To validate device readings against reference glucometer measurements.
-10. To investigate the possible use of pigmentation and temperature compensation algorithms.
+1. Study the principles and research challenges of NIR spectroscopy for glucose sensing.
+2. Design and develop an optical sensing and signal-acquisition system.
+3. Generate NIR optical signals using 850 nm and 940 nm LEDs.
+4. Detect optical responses using a BPW34 photodiode.
+5. Develop suitable signal-conditioning and data-acquisition circuitry.
+6. Acquire and record optical measurements using an ESP32-based system.
+7. Investigate signal preprocessing and feature extraction for NIR measurements.
+8. Incorporate additional physiological and contextual parameters in the second prototype.
+9. Compare NIR-only and multivariate regression approaches.
+10. Evaluate the relationship between prototype measurements and reference glucometer readings.
 
 ---
 
 ## Scope of the Project
 
-* Design and development of a NIR-based optical sensing prototype
-* Generation of optical signals using 850 nm and 940 nm NIR LEDs
-* Finger-based optical measurement
-* BPW34 photodiode-based detection
-* Transimpedance amplification using MCP6002 / OPA380
-* 16-bit ADC-based signal acquisition using ADS1115
-* ESP32-based data acquisition and processing
-* Noise filtering and baseline drift correction
-* Ambient-light cancellation
-* Absorbance-ratio calculation
-* Multi-wavelength correlation
-* Data collection and validation against a standard glucometer
-* Investigation of pigmentation and temperature compensation
-* Performance analysis of the prototype
+- Development of two NIR-based optical sensing prototype configurations.
+- Dual-wavelength optical measurement using 850 nm and 940 nm LEDs.
+- Finger-based optical transmission measurement.
+- Photodiode-based optical detection and signal conditioning.
+- ESP32-based sensor acquisition.
+- Integration of skin-temperature and PPG measurements in the second prototype.
+- Recording of contextual information, including BMI and time since the last meal.
+- Collection of reference glucose readings using a conventional glucometer.
+- Dataset preparation, signal analysis, regression modelling, and comparative evaluation.
+- Experimental investigation of the contribution of additional physiological and contextual parameters.
 
 ---
 
 ## Existing System
 
-Currently available glucometers commonly use invasive finger-prick methods for blood glucose measurement. The user must obtain a blood sample and use a disposable test strip to determine the glucose level.
+Conventional glucometers generally measure blood glucose using a small blood sample obtained through a finger prick. The sample is applied to a disposable test strip and analysed by the device.
 
-Limitations include:
+Common limitations of repeated finger-prick monitoring include:
 
-* Invasive finger-prick measurement
-* Pain and discomfort during frequent testing
-* Recurring cost of strips and lancets
-* Inconvenience for frequent monitoring
-* Risk of infection
-* Reduced patient compliance over time
+- Repeated skin puncturing.
+- Discomfort during frequent measurements.
+- Recurring use of test strips and lancets.
+- Inconvenience when frequent measurements are required.
 
-Existing wearable devices can provide vital-parameter monitoring, but reliable non-invasive glucose sensing remains a challenge.
+Non-invasive glucose monitoring remains a challenging research area because optical measurements from biological tissue are affected by factors other than glucose, including tissue composition, temperature, blood perfusion, skin properties, and sensor positioning.
 
 ---
 
 ## Proposed System
 
-The proposed system is a spectroscopy-based optical sensing prototype that uses the absorption and reflection properties of human tissue to investigate blood glucose trends without skin penetration.
+The proposed system investigates NIR optical sensing as a method for studying glucose trend correlation. It consists of two prototype configurations.
 
-The system will use:
+**Prototype 1 – Dual-Wavelength NIR Sensing**
 
-* **NIR LEDs:** 850 nm and 940 nm
-* **Photodiode:** BPW34
-* **Transimpedance Amplifier:** MCP6002 / OPA380
-* **ADC:** ADS1115, 16-bit
-* **Microcontroller:** ESP32
-* **Optional:** OLED display, temperature sensor, and pressure sensor
-* **Finger-clip enclosure**
+The first prototype uses 850 nm and 940 nm NIR LEDs arranged for transmission measurement through a finger. A BPW34 photodiode detects the optical response. The detector signal is conditioned, digitised, and acquired by an ESP32-based system. This configuration establishes the baseline optical measurement setup.
 
-The two NIR wavelengths will be switched and transmitted through the finger. The BPW34 photodiode will detect the optical response, which will be amplified by the TIA and converted into digital data using the 16-bit ADC. The ESP32 will acquire and process the signal.
+**Prototype 2 – Multivariate Sensing**
 
-The processing will include noise filtering, baseline drift correction, ambient-light cancellation, absorbance-ratio calculation, and multi-wavelength correlation. The resulting measurements will be compared with standard glucometer readings to investigate glucose trends.
+The second prototype extends the first configuration by incorporating additional physiological measurements. It includes skin-temperature sensing using a TMP117 sensor and PPG acquisition using a MAX30102 sensor. The additional measurements, together with contextual information such as BMI and time since the last meal, are considered during data analysis.
+
+Both configurations are compared against reference glucose readings obtained using a conventional glucometer. The comparison is intended to determine whether additional physiological and contextual inputs provide useful information beyond the NIR measurements alone.
 
 ---
 
 ## System Architecture
 
-Add block diagram or system architecture image here.
-
-```markdown
-![System Architecture](images/system_architecture.png)
-```
-
-The basic signal flow is:
+The overall system consists of an optical sensing stage, signal-conditioning and acquisition electronics, physiological sensors in the second prototype, and a data-analysis stage.
 
 ```text
-NIR LEDs
-(850 nm & 940 nm)
-        ↓
-Finger
-        ↓
-Photodiode
-(BPW34)
-        ↓
-TIA
-(MCP6002 / OPA380)
-        ↓
-ADC
-(16-bit ADS1115)
-        ↓
-ESP32
-        ↓
-Serial Monitor
+                 PROTOTYPE 1
+              Dual-Wavelength NIR
+                       |
+          850 nm and 940 nm LEDs
+                       |
+                 Finger
+                       |
+               BPW34 Photodiode
+                       |
+            Signal Conditioning
+                       |
+                 Data ADC
+                       |
+                    ESP32
+                       |
+              Acquired NIR Data
+                       |
+                       v
+              Dataset and Analysis
+                       ^
+                       |
+        Reference Glucose Measurements
+             (Conventional Glucometer)
+
+
+                 PROTOTYPE 2
+              Multivariate Sensing
+                       |
+          NIR Optical Measurements
+                       |
+        +--------------+--------------+
+        |                             |
+   TMP117 Sensor                 MAX30102
+ Skin Temperature                    PPG
+        |                             |
+        +--------------+--------------+
+                       |
+              Sensor Data Recording
+                       |
+          Contextual Information
+          (BMI, Time Since Meal)
+                       |
+              Dataset and Analysis
+                       |
+          Multivariate Model Evaluation
 ```
 
-The system architecture follows the proposed flow of generating two NIR signals, transmitting them through the finger, detecting the optical response, amplifying it, converting it using a 16-bit ADC, and processing the acquired data through the ESP32.
-
-Briefly explain the architecture.
+The first prototype provides the NIR optical measurements used for baseline analysis. The second prototype adds temperature and PPG-derived information to investigate physiological compensation. Reference glucometer readings are recorded alongside the sensor measurements for model development and evaluation.
 
 ---
 
 ## Hardware Requirements
 
-| Sr. No. | Component | Specification | Quantity | Purpose |
-| ------- | --------- | ------------- | -------- | ------- |
-| 1       |           |               |          |         |
-| 2       |           |               |          |         |
-| 3       |           |               |          |         |
-| 4       |           |               |          |         |
+| Sr. No. | Component | Specification | Purpose |
+| --- | --- | --- | --- |
+| 1 | NIR LEDs | 850 nm and 940 nm | Optical illumination |
+| 2 | Photodiode | BPW34 | Detection of optical response |
+| 3 | Signal-conditioning circuit | Transimpedance amplifier | Photodiode signal conditioning |
+| 4 | ADC | ADS1115, 16-bit | Digitisation of analogue measurements |
+| 5 | Microcontroller | ESP32 | Sensor acquisition and data handling |
+| 6 | Temperature sensor | TMP117 | Skin-temperature measurement in Prototype 2 |
+| 7 | PPG sensor | MAX30102 | PPG acquisition in Prototype 2 |
+| 8 | Reference instrument | Conventional glucometer | Reference glucose measurements |
 
 ---
 
 ## Software Requirements
 
-| Sr. No. | Software / Tool | Version | Purpose |
-| ------- | --------------- | ------- | ------- |
-| 1       |                 |         |         |
-| 2       |                 |         |         |
-| 3       |                 |         |         |
+| Software / Tool | Purpose |
+| --- | --- |
+| Arduino IDE | ESP32 firmware development and uploading |
+| Python | Dataset processing and machine-learning analysis |
+| MATLAB | Numerical and signal analysis |
 
 ---
 
 ## Technologies Used
 
-Mention technologies used in the project.
-
-Example:
-
-* Embedded C / Python / JavaScript
-* Arduino / STM32 / ESP32 / Raspberry Pi
-* ROS / MATLAB / Simulink
-* Machine Learning / Computer Vision
-* IoT / Cloud / Mobile App
-* PCB Design / CAD Design
+- Near-Infrared (NIR) optical sensing
+- Embedded systems and ESP32-based data acquisition
+- Analogue signal conditioning and ADC interfacing
+- Photoplethysmography (PPG)
+- Temperature sensing
+- Digital signal processing
+- Dataset preparation and multivariate regression
+- Experimental performance evaluation
 
 ---
 
 ## Methodology
 
-Explain the step-by-step approach.
-
-1. Literature survey
-2. Problem identification
-3. Requirement analysis
-4. System design
-5. Hardware/software development
-6. Integration
-7. Testing and validation
-8. Documentation and publication
+1. **Literature Study:** Review NIR spectroscopy, non-invasive glucose monitoring, optical measurement configurations, and physiological sources of measurement variation.
+2. **Requirement Analysis:** Identify the sensing, acquisition, and analysis requirements for both prototype configurations.
+3. **Prototype 1 Development:** Develop the dual-wavelength optical sensing arrangement using 850 nm and 940 nm LEDs and a BPW34 photodiode.
+4. **Signal Acquisition:** Condition and digitise the photodiode response and acquire measurements through the ESP32.
+5. **Prototype 2 Development:** Extend the sensing configuration with TMP117 skin-temperature measurement and MAX30102 PPG acquisition.
+6. **Reference Data Collection:** Record conventional glucometer readings corresponding to the sensor measurement sessions.
+7. **Dataset Preparation:** Organise optical, physiological, contextual, and reference measurements for analysis.
+8. **Model Development:** Develop regression models using NIR measurements and compare them with models incorporating additional inputs.
+9. **Evaluation:** Compare model performance using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and coefficient of determination (R²).
 
 ---
 
 ## Project Timeline
 
-| Week / Month | Task Planned          | Status                            |
-| ------------ | --------------------- | --------------------------------- |
-| Week 1       | Problem finalization  | Pending / In Progress / Completed |
-| Week 2       | Literature survey     |                                   |
-| Week 3       | Requirement analysis  |                                   |
-| Week 4       | System design         |                                   |
-| Week 5       | Prototype development |                                   |
-| Week 6       | Testing               |                                   |
-| Week 7       | Documentation         |                                   |
-| Week 8       | Paper writing         |                                   |
+| Period | Work |
+| --- | --- |
+| Week 1 | Problem definition, project objectives, and initial literature study |
+| Week 2 | Review of NIR spectroscopy, glucose-sensing research, and optical measurement methods |
+| Week 3 | Selection of wavelengths, photodetector, signal-conditioning approach, and acquisition architecture |
+| Week 4 | Prototype 1 circuit development and optical measurement arrangement |
+| Week 5 | Prototype 1 hardware integration and ESP32-based signal acquisition |
+| Week 6 | Development of the second sensing configuration with temperature and PPG sensors |
+| Week 7 | Experimental data workflow, reference glucose recording, and dataset organisation |
+| Week 8 | Signal analysis, regression-model planning, comparative evaluation framework, and project documentation |
 
 ---
 
 ## Weekly Progress Updates
 
-Students must update this section every week.
-
-| Week   | Date | Work Completed | Work Planned for Next Week | Issues / Challenges | GitHub Commit Link |
-| ------ | ---- | -------------- | -------------------------- | ------------------- | ------------------ |
-| Week 1 |      |                |                            |                     |                    |
-| Week 2 |      |                |                            |                     |                    |
-| Week 3 |      |                |                            |                     |                    |
-| Week 4 |      |                |                            |                     |                    |
-| Week 5 |      |                |                            |                     |                    |
-| Week 6 |      |                |                            |                     |                    |
-| Week 7 |      |                |                            |                     |                    |
-| Week 8 |      |                |                            |                     |                    |
-
----
-
-## Design Files
-
-Upload and link all design files here.
-
-| File Type       | File Name / Link | Description |
-| --------------- | ---------------- | ----------- |
-| CAD Model       |                  |             |
-| Circuit Diagram |                  |             |
-| PCB Design      |                  |             |
-| Flowchart       |                  |             |
-| Simulation File |                  |             |
-
----
-
-## Circuit Diagram
-
-Add circuit diagram image here.
-
-```markdown
-![Circuit Diagram](images/circuit_diagram.png)
-```
-
----
-
-## Flowchart / Algorithm
-
-Add flowchart image here.
-
-```markdown
-![Flowchart](images/flowchart.png)
-```
-
-### Algorithm
-
-1. Start
-2. Initialize the system
-3. Read input from sensors/user
-4. Process the data
-5. Generate output/control action
-6. Display/store/transmit result
-7. Stop
+| Week | Work Completed |
+| --- | --- |
+| Week 1 | Finalised the project problem, aim, objectives, and scope. Initiated the study of non-invasive glucose monitoring and NIR spectroscopy. |
+| Week 2 | Reviewed research on NIR glucose estimation, optical transmission and reflectance configurations, wavelength selection, and physiological measurement interference. |
+| Week 3 | Finalised the two-wavelength sensing concept using 850 nm and 940 nm LEDs. Identified the BPW34 photodiode and the signal-acquisition requirements for Prototype 1. |
+| Week 4 | Developed the first prototype circuit and optical arrangement. Worked on the photodiode signal-conditioning stage and finger measurement enclosure. |
+| Week 5 | Integrated the optical sensing hardware with the ESP32-based acquisition setup and worked on obtaining the NIR sensor measurements. |
+| Week 6 | Developed the second prototype configuration by extending the NIR setup with TMP117 temperature sensing and MAX30102 PPG acquisition. |
+| Week 7 | Defined the experimental data workflow, including reference glucometer readings and recording of contextual parameters such as BMI and time since the last meal. |
+| Week 8 | Organised the comparative analysis approach for NIR-only and multivariate regression models and consolidated the system design and experimental methodology. |
 
 ---
 
 ## Implementation Details
 
-Explain the actual implementation of the project.
+### Prototype 1: NIR Optical Sensing
 
-### Hardware Implementation
+Prototype 1 uses 850 nm and 940 nm NIR LEDs to illuminate a finger in a transmission-based arrangement. The BPW34 photodiode detects the optical response after it passes through the finger. The photodiode output is conditioned using a transimpedance amplifier and digitised using an ADS1115 16-bit ADC. The ESP32 is used for acquiring the digitised measurements.
 
-Write details about connections, components, power supply, sensors, actuators, PCB, enclosure, etc.
+The measurements from the two wavelengths form the baseline optical dataset for studying the relationship between NIR response and reference glucose readings.
 
-### Software Implementation
+### Prototype 2: Multivariate Sensing
 
-Write details about code structure, libraries used, algorithms, communication protocols, database, app, cloud, etc.
+Prototype 2 extends the optical measurement configuration with additional physiological sensing. A TMP117 sensor is used to obtain skin-temperature measurements, while a MAX30102 sensor is used to acquire PPG signals. Contextual parameters, including BMI and time since the last meal, are also considered during dataset preparation and analysis.
 
----
+The additional inputs are investigated to determine whether they help account for physiological and measurement-related variations in the optical readings.
 
-## Code Structure
+### Data Processing and Model Evaluation
 
-```text
-BE-Capstone-Project/
-│
-├── README.md
-├── docs/
-│   ├── literature_survey.md
-│   ├── project_report.pdf
-│   └── presentation.pptx
-│
-├── hardware/
-│   ├── circuit_diagram.png
-│   ├── pcb_design/
-│   └── cad_model/
-│
-├── software/
-│   ├── src/
-│   ├── include/
-│   └── tests/
-│
-├── images/
-│   ├── system_architecture.png
-│   ├── prototype_photo.jpg
-│   └── results.png
-│
-└── references/
-    └── papers/
-```
+The collected sensor measurements are organised with their corresponding reference glucose readings. The analysis compares two modelling approaches:
 
----
+- **NIR-only approach:** Uses the optical measurements from the 850 nm and 940 nm channels.
+- **Multivariate approach:** Uses NIR measurements along with additional physiological and contextual parameters.
 
-## How to Run the Project
-
-### Step 1: Clone the Repository
-
-```bash
-git clone https://github.com/username/project-name.git
-```
-
-### Step 2: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-or mention specific software/library installation steps.
-
-### Step 3: Upload / Run the Code
-
-```bash
-python main.py
-```
-
-or
-
-```bash
-arduino-cli upload -p COMx --fqbn board_name
-```
-
-### Step 4: Observe the Output
-
-Mention the expected output of the project.
+Regression models are evaluated using MAE, RMSE, and R². The contribution of additional inputs is determined from experimental results rather than assumed in advance.
 
 ---
 
 ## Testing and Results
 
-| Test No. | Test Description | Expected Result | Actual Result | Status      |
-| -------- | ---------------- | --------------- | ------------- | ----------- |
-| 1        |                  |                 |               | Pass / Fail |
-| 2        |                  |                 |               | Pass / Fail |
-| 3        |                  |                 |               | Pass / Fail |
+The project evaluation focuses on the operation of the sensing stages and the relationship between acquired measurements and reference glucose readings.
 
----
+| Test Area | Evaluation |
+| --- | --- |
+| NIR source operation | Verify operation of the 850 nm and 940 nm illumination channels |
+| Photodiode response | Observe the detector response under NIR illumination |
+| Signal acquisition | Verify digitisation and acquisition of optical measurements |
+| Temperature sensing | Verify TMP117 temperature-data acquisition in Prototype 2 |
+| PPG acquisition | Verify MAX30102 PPG-data acquisition in Prototype 2 |
+| Reference measurements | Associate sensor sessions with conventional glucometer readings |
+| Model evaluation | Compare NIR-only and multivariate regression performance using MAE, RMSE, and R² |
 
-## Result Images / Videos
-
-Add images or videos of the working prototype.
-
-```markdown
-![Prototype](images/prototype_photo.jpg)
-```
-
-Video Link:
-
-```markdown
-[Project Demo Video](https://drive.google.com/your-video-link)
-```
+Quantitative glucose-estimation performance is dependent on the collected experimental dataset and its evaluation. No clinical accuracy or diagnostic capability is claimed.
 
 ---
 
 ## Applications
 
-Mention real-world applications of the project.
-
-1.
-2.
-3.
-4.
+1. Experimental research into NIR-based non-invasive glucose monitoring.
+2. Investigation of optical and physiological parameters for glucose trend correlation.
+3. Comparative study of single-modality and multivariate sensor-based regression.
+4. Development of compact optical sensing prototypes for biomedical instrumentation research.
 
 ---
 
 ## Advantages
 
-1.
-2.
-3.
-4.
+1. Uses optical measurements without requiring blood extraction for the prototype's sensing process.
+2. Uses two NIR wavelengths to obtain more than one optical measurement.
+3. The second prototype incorporates temperature and PPG measurements for multivariate analysis.
+4. Provides a platform for comparing NIR-only and enhanced sensor-input models.
 
 ---
 
 ## Limitations
 
-1.
-2.
-3.
-4.
+1. Optical measurements are affected by tissue composition, skin properties, temperature, blood perfusion, and sensor positioning.
+2. The first prototype uses only two NIR wavelengths, providing limited spectral information.
+3. Model performance depends on the size, quality, and diversity of the collected dataset.
+4. Experimental results do not establish clinical validity or suitability for medical decision-making.
+5. Performance on the collected dataset may not generalise to unseen individuals or different measurement conditions.
 
 ---
 
 ## Future Scope
 
-Mention possible improvements.
-
-1.
-2.
-3.
-4.
+1. Expand the experimental dataset across a broader range of participants and measurement conditions.
+2. Investigate additional optical wavelengths and sensing configurations.
+3. Improve signal preprocessing and compensation for physiological and environmental variations.
+4. Evaluate additional regression and machine-learning methods using consistent validation procedures.
+5. Conduct further validation to assess generalisation across individuals and measurement sessions.
 
 ---
 
 ## Research Paper / Publication
 
-| Item                      | Details                                                   |
-| ------------------------- | --------------------------------------------------------- |
-| Paper Title               |                                                           |
-| Conference / Journal Name |                                                           |
-| Paper Status              | Not Started / Drafting / Submitted / Accepted / Published |
-| Submission Date           |                                                           |
-| Paper Link                |                                                           |
-
----
-
-## References
-
-Add references in IEEE format.
-
-Example:
-
-```text
-[1] A. Author, B. Author, "Title of the Paper," Journal/Conference Name, vol. X, no. Y, pp. xx-yy, Year.
-[2] Datasheet / Website / Book reference.
-```
-
----
-
-## Repository Update Guidelines
-
-Each student team must update the GitHub repository regularly.
-
-Minimum expected updates:
-
-* Update README every week.
-* Push code changes regularly.
-* Upload circuit diagrams, CAD files, PCB files, reports and presentations.
-* Add weekly progress in the progress table.
-* Maintain proper folder structure.
-* Do not upload unnecessary temporary files.
-* Each major update should have a meaningful commit message.
-
-Example commit messages:
-
-```text
-Added problem statement and objectives
-Updated system architecture diagram
-Added sensor interfacing code
-Updated weekly progress for Week 3
-Added testing results and prototype images
-```
+The project includes a comparative experimental investigation of two NIR-based sensing configurations: a baseline dual-wavelength prototype and an extended multivariate prototype. The central research question is whether incorporating additional physiological and contextual parameters improves glucose trend correlation compared with using NIR measurements alone.
 
 ---
 
 ## Declaration
 
-We declare that this project work is carried out by our team as part of the BE Capstone Project. The work will be regularly updated on GitHub and all references used will be properly cited.
+This project is carried out by the listed team as part of the BE Capstone Project under the Department of Automation and Robotics, VESIT, Mumbai. The work investigates NIR-based optical sensing for glucose trend correlation and is intended for academic and experimental research.
 
 ---
 
 ## License
 
-This project is for academic use only.
-
-Optional:
-
-```text
-MIT License / Creative Commons / Institute Use Only
-```
-
-```
-```
+This project is intended for academic and research purposes.
