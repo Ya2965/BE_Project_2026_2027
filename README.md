@@ -269,7 +269,8 @@ Regression models are evaluated using MAE, RMSE, and R². The contribution of ad
 
 | Stage | Status |
 | --- | --- |
-| Hardware and sensor integration | In Progress |
+| Hardware and sensor integration | Done |
+|Initial Testing | Done|
 | Data collection | In Progress |
 | Data preprocessing and analysis | In Progress |
 | Feature extraction and dataset preparation | In Progress |
