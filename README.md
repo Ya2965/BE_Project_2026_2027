@@ -267,19 +267,15 @@ Regression models are evaluated using MAE, RMSE, and R². The contribution of ad
 
 ## Testing and Results
 
-The project evaluation focuses on the operation of the sensing stages and the relationship between acquired measurements and reference glucose readings.
-
-| Test Area | Evaluation |
+| Stage | Status |
 | --- | --- |
-| NIR source operation | Verify operation of the 850 nm and 940 nm illumination channels |
-| Photodiode response | Observe the detector response under NIR illumination |
-| Signal acquisition | Verify digitisation and acquisition of optical measurements |
-| Temperature sensing | Verify TMP117 temperature-data acquisition in Prototype 2 |
-| PPG acquisition | Verify MAX30102 PPG-data acquisition in Prototype 2 |
-| Reference measurements | Associate sensor sessions with conventional glucometer readings |
-| Model evaluation | Compare NIR-only and multivariate regression performance using MAE, RMSE, and R² |
-
-Quantitative glucose-estimation performance is dependent on the collected experimental dataset and its evaluation. No clinical accuracy or diagnostic capability is claimed.
+| Hardware and sensor integration | In Progress |
+| Data collection | In Progress |
+| Data preprocessing and analysis | In Progress |
+| Feature extraction and dataset preparation | In Progress |
+| Regression model development | In Progress |
+| Model evaluation and comparative analysis | In Progress |
+| Final validation and performance assessment | In Progress |
 
 ---
 
