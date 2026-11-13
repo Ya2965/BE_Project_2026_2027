@@ -1,4 +1,4 @@
-````markdown
+
 # BE Capstone Project
 
 ## Project Title
